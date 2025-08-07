@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Info</title>
+</head>
+<body>
+
+  <h1>Name: Lalitha</h1>
+  <h2>Course: BCA</h2>
+
+  <p>
+     I have learned many new topics from GitHub Which can be used for different purposes.
+  </p>
+
+</body>
+</html>
