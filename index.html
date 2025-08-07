@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Ticket Booking</title>
+</head>
+<body>
+
+  <h1>Movie Ticket Booking</h1>
+
+  <label for="movie">Select a movie:</label>
+  <select id="movie">
+    <option value="10">Avengers - $10</option>
+    <option value="12">Inception - $12</option>
+    <option value="8">Finding Nemo - $8</option>
+  </select>
+
+  <br><br>
+
+  <label for="seats">Number of tickets:</label>
+  <input type="number" id="seats" min="1" value="1" />
+
+  <br><br>
+
+  <button onclick="bookTickets()">Book Now</button>
+
+  <h2>Booking Summary</h2>
+  <div id="summary"></div>
+
+  <script>
+    function bookTickets() {
+      const movieSelect = document.getElementById('movie');
+      const seatInput = document.getElementById('seats');
+      const summaryDiv = document.getElementById('summary');
+
+      const pricePerTicket = parseInt(movieSelect.value);
+      const movieName = movieSelect.options[movieSelect.selectedIndex].text.split(' - ')[0];
+      const seatCount = parseInt(seatInput.value);
+      const totalPrice = pricePerTicket * seatCount;
+
+      summaryDiv.innerHTML =
+        '<p>Movie: ' + movieName + '</p>' +
+        '<p>Tickets: ' + seatCount + '</p>' +
+        '<p>Total Price: $' + totalPrice + '</p>';
+    }
+  </script>
+
+</body>
+</html>
