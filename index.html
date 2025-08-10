@@ -1,48 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Movie Ticket Booking</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DevOps Lifecycle Visualization</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #0077b6;
+  }
+
+  .lifecycle {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
+
+  .stage {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 160px;
+    padding: 15px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .stage h3 {
+    margin-top: 0;
+    color: #023e8a;
+  }
+
+  .stage p {
+    font-size: 0.9rem;
+    margin: 8px 0 0;
+  }
+
+  /* Arrow between cards */
+  .stage:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #0077b6;
+  }
+
+  @media (max-width: 700px) {
+    .lifecycle {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .stage {
+      width: 90%;
+    }
+    .stage:not(:last-child)::after {
+      content: none;
+    }
+  }
+</style>
 </head>
 <body>
 
-  <h1>Movie Ticket Booking</h1>
-
-  <label for="movie">Select a movie:</label>
-  <select id="movie">
-    <option value="10">Avengers - $10</option>
-    <option value="12">Inception - $12</option>
-    <option value="8">Finding Nemo - $8</option>
-  </select>
-
-  <br><br>
-
-  <label for="seats">Number of tickets:</label>
-  <input type="number" id="seats" min="1" value="1" />
-
-  <br><br>
-
-  <button onclick="bookTickets()">Book Now</button>
-
-  <h2>Booking Summary</h2>
-  <div id="summary"></div>
-
-  <script>
-    function bookTickets() {
-      const movieSelect = document.getElementById('movie');
-      const seatInput = document.getElementById('seats');
-      const summaryDiv = document.getElementById('summary');
-
-      const pricePerTicket = parseInt(movieSelect.value);
-      const movieName = movieSelect.options[movieSelect.selectedIndex].text.split(' - ')[0];
-      const seatCount = parseInt(seatInput.value);
-      const totalPrice = pricePerTicket * seatCount;
-
-      summaryDiv.innerHTML =
-        '<p>Movie: ' + movieName + '</p>' +
-        '<p>Tickets: ' + seatCount + '</p>' +
-        '<p>Total Price: $' + totalPrice + '</p>';
-    }
-  </script>
+  <h1>DevOps Lifecycle for Vizag Tourism Website</h1>
+  <div class="lifecycle">
+    <div class="stage">
+      <h3>Plan</h3>
+      <p>Define features & tasks (e.g., categories, filtering)</p>
+    </div>
+    <div class="stage">
+      <h3>Develop</h3>
+      <p>Write HTML, CSS, JS; use version control</p>
+    </div>
+    <div class="stage">
+      <h3>Build</h3>
+      <p>Bundle or minify code (optional for static sites)</p>
+    </div>
+    <div class="stage">
+      <h3>Test</h3>
+      <p>Check UI, responsiveness, functionality</p>
+    </div>
+    <div class="stage">
+      <h3>Release</h3>
+      <p>Tag version, prepare for deployment</p>
+    </div>
+    <div class="stage">
+      <h3>Deploy</h3>
+      <p>Host on GitHub Pages, Netlify, or similar</p>
+    </div>
+    <div class="stage">
+      <h3>Operate</h3>
+      <p>Monitor uptime & performance</p>
+    </div>
+    <div class="stage">
+      <h3>Monitor</h3>
+      <p>Track user behavior & errors</p>
+    </div>
+  </div>
 
 </body>
 </html>
